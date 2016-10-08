@@ -23,19 +23,7 @@
  */
 
 (function(root, factory) {
-  if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('superagent'));
-  } else if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['superagent'], factory);
-  } else {
-    // Browser globals (root is window)
-    if (!root.MaxwinServiceApi) {
-      root.MaxwinServiceApi = {};
-    }
-    root.MaxwinServiceApi.ApiClient = factory(root.superagent);
-  }
+  module.exports = factory(require('superagent'));
 }(this, function(superagent) {
   'use strict';
 
