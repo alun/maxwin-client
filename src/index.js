@@ -23,12 +23,12 @@
  */
 
 (function(factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Game', 'api/GamesApi'], factory);
-  } else if (typeof module === 'object' && module.exports) {
+  if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
     module.exports = factory(require('./ApiClient'), require('./model/Error'), require('./model/Game'), require('./api/GamesApi'));
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/Error', 'model/Game', 'api/GamesApi'], factory);
   }
 }(function(ApiClient, Error, Game, GamesApi) {
   'use strict';
