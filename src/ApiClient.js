@@ -45,7 +45,7 @@
      * @type {String}
      * @default https://cluttery.katlex.com/v1
      */
-    this.basePath = 'http://iceberg.katlex.com:3000/v1'.replace(/\/+$/, '');
+    this.basePath = 'https://iceberg.katlex.com/v1'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
