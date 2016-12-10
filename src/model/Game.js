@@ -74,8 +74,8 @@
       if (data.hasOwnProperty('balance')) {
         obj['balance'] = ApiClient.convertToType(data['balance'], 'String');
       }
-      if (data.hasOwnProperty('timeToFinish')) {
-        obj['timeToFinish'] = ApiClient.convertToType(data['timeToFinish'], 'Integer');
+      if (data.hasOwnProperty('deadline')) {
+        obj['deadline'] = ApiClient.convertToType(data['deadline'], 'Integer');
       }
     }
     return obj;
@@ -103,9 +103,9 @@
   exports.prototype['balance'] = undefined;
   /**
    * Time (ms) to the moment when game is finished
-   * @member {Integer} timeToFinish
+   * @member {Integer} deadline
    */
-  exports.prototype['timeToFinish'] = undefined;
+  exports.prototype['deadline'] = undefined;
 
 
 
