@@ -43,7 +43,7 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://cluttery.katlex.com/v1
+     * @default https://iceberg.katlex.com/v1
      */
     this.basePath = 'https://iceberg.katlex.com/v1'.replace(/\/+$/, '');
 
@@ -362,7 +362,10 @@
 
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
-      request.type(contentType);
+      // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
+      if(contentType != 'multipart/form-data') {
+        request.type(contentType);
+      }
     } else if (!request.header['Content-Type']) {
       request.type('application/json');
     }

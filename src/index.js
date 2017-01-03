@@ -23,8 +23,8 @@
  */
 
 (function(factory) {
-  module.exports = factory(require('./ApiClient'), require('./model/Error'), require('./model/Game'), require('./api/GamesApi'));
-}(function(ApiClient, Error, Game, GamesApi) {
+  module.exports = factory(require('./ApiClient'), require('./model/Error'), require('./model/FinishedGame'), require('./model/Game'), require('./api/GamesApi'));
+}(function(ApiClient, Error, FinishedGame, Game, GamesApi) {
   'use strict';
 
   /**
@@ -69,6 +69,11 @@
      * @property {module:model/Error}
      */
     Error: Error,
+    /**
+     * The FinishedGame model constructor.
+     * @property {module:model/FinishedGame}
+     */
+    FinishedGame: FinishedGame,
     /**
      * The Game model constructor.
      * @property {module:model/Game}
