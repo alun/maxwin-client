@@ -23,8 +23,8 @@
  */
 
 (function(root, factory) {
-  module.exports = factory(require('../ApiClient'), require('../model/Game'), require('../model/Error'));
-}(this, function(ApiClient, Game, Error) {
+  module.exports = factory(require('../ApiClient'), require('../model/Game'), require('../model/Error'), require('../model/FinishedGame'));
+}(this, function(ApiClient, Game, Error, FinishedGame) {
   'use strict';
 
   /**
@@ -58,7 +58,7 @@
      * @param {module:api/GamesApi~gamesGetCurrentGamesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Game>}
      */
-    this.getCurrentGames = function(callback) {
+    this.gamesGetCurrentGames = function(callback) {
       var postBody = null;
 
 
@@ -100,7 +100,7 @@
      * @param {module:api/GamesApi~gamesGetHistoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/FinishedGame>}
      */
-    this.getHistory = function(opts, callback) {
+    this.gamesGetHistory = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
 
