@@ -54,7 +54,7 @@
 
     /**
      * Returns current games info
-     * Returns following info about current running games: 1. game address 2. finished flag 3. maxAmount maximum bet 4. balance amount of money in the bank 5. timeToFinish msecs to game fininsh 
+     * Returns info about current running games 
      * @param {module:api/GamesApi~gamesGetCurrentGamesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Game>}
      */
@@ -78,6 +78,51 @@
 
       return this.apiClient.callApi(
         '/games/current', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the gamesGetHistory operation.
+     * @callback module:api/GamesApi~gamesGetHistoryCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/FinishedGame>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Returns finished games and their results
+     * Returns part of games history. Only finished games inclued. Games are returned sorted by finished timestamp descending. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.skip Pagination skip items (default 0)
+     * @param {Number} opts.limit Pagination limit items (default 10)
+     * @param {module:api/GamesApi~gamesGetHistoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/FinishedGame>}
+     */
+    this.getHistory = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'skip': opts['skip'],
+        'limit': opts['limit']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [FinishedGame];
+
+      return this.apiClient.callApi(
+        '/games/history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
