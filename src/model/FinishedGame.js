@@ -23,7 +23,7 @@
  */
 
 (function(root, factory) {
-    module.exports = factory(require('../ApiClient'));
+  module.exports = factory(require('../ApiClient'));
 }(this, function(ApiClient) {
   'use strict';
 
@@ -31,14 +31,14 @@
 
 
   /**
-   * The Game model module.
-   * @module model/Game
+   * The FinishedGame model module.
+   * @module model/FinishedGame
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>Game</code>.
-   * @alias module:model/Game
+   * Constructs a new <code>FinishedGame</code>.
+   * @alias module:model/FinishedGame
    * @class
    */
   var exports = function() {
@@ -48,55 +48,73 @@
 
 
 
+
+
   };
 
   /**
-   * Constructs a <code>Game</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FinishedGame</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Game} obj Optional instance to populate.
-   * @return {module:model/Game} The populated <code>Game</code> instance.
+   * @param {module:model/FinishedGame} obj Optional instance to populate.
+   * @return {module:model/FinishedGame} The populated <code>FinishedGame</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
       if (data.hasOwnProperty('address')) {
         obj['address'] = ApiClient.convertToType(data['address'], 'String');
+      }
+      if (data.hasOwnProperty('finished')) {
+        obj['finished'] = ApiClient.convertToType(data['finished'], 'Number');
+      }
+      if (data.hasOwnProperty('winners')) {
+        obj['winners'] = ApiClient.convertToType(data['winners'], 'Number');
       }
       if (data.hasOwnProperty('maxAmount')) {
         obj['maxAmount'] = ApiClient.convertToType(data['maxAmount'], 'String');
       }
-      if (data.hasOwnProperty('balance')) {
-        obj['balance'] = ApiClient.convertToType(data['balance'], 'String');
-      }
-      if (data.hasOwnProperty('deadline')) {
-        obj['deadline'] = ApiClient.convertToType(data['deadline'], 'Number');
+      if (data.hasOwnProperty('prize')) {
+        obj['prize'] = ApiClient.convertToType(data['prize'], 'String');
       }
     }
     return obj;
   }
 
   /**
+   * Game ID
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
    * Bit coin address of the game
    * @member {String} address
    */
   exports.prototype['address'] = undefined;
+  /**
+   * Finished UNIX timestamp
+   * @member {Number} finished
+   */
+  exports.prototype['finished'] = undefined;
+  /**
+   * Nuber of winners in the game
+   * @member {Number} winners
+   */
+  exports.prototype['winners'] = undefined;
   /**
    * Maximum bet
    * @member {String} maxAmount
    */
   exports.prototype['maxAmount'] = undefined;
   /**
-   * Total money amount
-   * @member {String} balance
+   * Total prize received by winners
+   * @member {String} prize
    */
-  exports.prototype['balance'] = undefined;
-  /**
-   * Time (ms) to the moment when game is finished
-   * @member {Number} deadline
-   */
-  exports.prototype['deadline'] = undefined;
+  exports.prototype['prize'] = undefined;
 
 
 

@@ -60,7 +60,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'Integer');
+        obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
       if (data.hasOwnProperty('message')) {
         obj['message'] = ApiClient.convertToType(data['message'], 'String');
@@ -70,7 +70,7 @@
   }
 
   /**
-   * @member {Integer} code
+   * @member {Number} code
    */
   exports.prototype['code'] = undefined;
   /**
