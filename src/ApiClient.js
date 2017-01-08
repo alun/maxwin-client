@@ -43,9 +43,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://iceberg.katlex.com/v1
+     * @default https://api.iceberg.katlex.com/v1
      */
-    this.basePath = 'https://iceberg.katlex.com/v1'.replace(/\/+$/, '');
+    this.basePath = 'https://api.iceberg.katlex.com/v1'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
